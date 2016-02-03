@@ -48,11 +48,12 @@ tape( 'the function returns an integer corresponding to the unbiased exponent of
 		frac = Math.random() * 10;
 		exp = round( Math.random()*44 ) - 22;
 		x = sign * frac * pow( 10, exp );
+		x = toFloat32( x );
 
 		b = bits( x );
 		expected = parseInt( b.substring( 1, 9 ), 2 ) - BIAS;
 
-		actual = exponent( toFloat32( x ) );
+		actual = exponent( x );
 		t.equal( actual, expected, 'returns the unbiased exponent for ' + x );
 
 	}
