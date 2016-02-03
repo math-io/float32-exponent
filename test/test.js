@@ -7,6 +7,7 @@ var pinf = require( 'const-pinf-float32' );
 var ninf = require( 'const-ninf-float32' );
 var round = require( 'math-round' );
 var pow = require( 'math-power' );
+var toFloat32 = require( 'float64-to-float32' );
 var bits = require( 'math-float32-bits' );
 var exponent = require( './../lib' );
 
@@ -24,7 +25,7 @@ tape( 'main export is a function', function test( t ) {
 });
 
 tape( 'the function returns a number', function test( t ) {
-	t.equal( typeof exponent(3.14e30), 'number', 'returns a number' );
+	t.equal( typeof exponent( toFloat32( 3.14e30 ) ), 'number', 'returns a number' );
 	t.end();
 });
 
@@ -51,7 +52,7 @@ tape( 'the function returns an integer corresponding to the unbiased exponent of
 		b = bits( x );
 		expected = parseInt( b.substring( 1, 9 ), 2 ) - BIAS;
 
-		actual = exponent( x );
+		actual = exponent( toFloat32( x ) );
 		t.equal( actual, expected, 'returns the unbiased exponent for ' + x );
 
 	}
@@ -80,6 +81,6 @@ tape( 'the function returns the unbiased exponent for `NaN`', function test( t )
 });
 
 tape( 'the function returns the unbiased exponent for subnormals', function test( t ) {
-	t.equal( exponent( 3.14e-42 ), -BIAS, 'returns -127' );
+	t.equal( exponent( toFloat32( 3.14e-42 ) ), -BIAS, 'returns -127' );
 	t.end();
 });
