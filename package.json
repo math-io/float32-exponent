@@ -50,7 +50,7 @@
     "url": "https://github.com/math-io/float32-exponent/issues"
   },
   "dependencies": {
-    "math-float32-to-word": "git+https://github.com/math-io/float32-to-word.git"
+    "math-float32-to-word": "^1.0.0"
   },
   "devDependencies": {
     "browserify": "12.x.x",
@@ -61,7 +61,7 @@
     "istanbul": "^0.4.1",
     "jshint": "2.x.x",
     "jshint-stylish": "2.x.x",
-    "math-float32-bits": "git+https://github.com/math-io/float32-bits.git",
+    "math-float32-bits": "^1.0.0",
     "math-power": "^1.0.0",
     "math-round": "^1.0.0",
     "tap-spec": "4.x.x",
